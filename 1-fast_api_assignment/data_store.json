@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "amount": 150.0,
+        "status": "paid"
+    },
+    {
+        "id": 2,
+        "amount": 200,
+        "status": "paid"
+    },
+    {
+        "id": 3,
+        "amount": 300,
+        "status": "pending"
+    },
+    {
+        "id": 4,
+        "amount": 400,
+        "status": "paid"
+    }
+]
