@@ -1,0 +1,78 @@
+{
+    "invoices": [
+        {
+            "invoice_id": "INV-101",
+            "vendor": "Abc Ltd",
+            "amount": 85000,
+            "status": "PENDING",
+            "date": "2026-09-03"
+        },
+        {
+            "invoice_id": "INV-102",
+            "vendor": "Xyz Corp",
+            "amount": 142500,
+            "status": "PENDING",
+            "date": "2026-09-05"
+        },
+        {
+            "invoice_id": "INV-103",
+            "vendor": "Globex",
+            "amount": -550000,
+            "status": "CANCELLED",
+            "date": "2026-09-07"
+        },
+        {
+            "invoice_id": "INV-104",
+            "vendor": "Abc Ltd",
+            "amount": 62000,
+            "status": "PAID",
+            "date": "2026-09-08"
+        },
+        {
+            "invoice_id": "INV-102",
+            "vendor": "Xyz Corp",
+            "amount": 150000,
+            "status": "PENDING",
+            "date": "2026-09-12"
+        },
+        {
+            "invoice_id": "INV-105",
+            "vendor": "Globex",
+            "amount": 550000,
+            "status": "CANCELLED",
+            "date": "2026-09-09"
+        },
+        {
+            "invoice_id": "INV-106",
+            "vendor": "Initech",
+            "amount": null,
+            "status": "PENDING",
+            "date": "2026-09-15"
+        },
+        {
+            "invoice_id": "INV-107",
+            "vendor": "Abc Ltd",
+            "amount": 85000,
+            "status": "PENDING",
+            "date": "2026-09-03"
+        }
+    ],
+    "payments": [
+        {
+            "invoice_id": "INV-101",
+            "paid": 85000
+        },
+        {
+            "invoice_id": "INV-101",
+            "paid": 85000
+        },
+        {
+            "invoice_id": "INV-104",
+            "paid": 60000
+        },
+        {
+            "invoice_id": "INV-109",
+            "paid": 12000
+        }
+    ]
+}
