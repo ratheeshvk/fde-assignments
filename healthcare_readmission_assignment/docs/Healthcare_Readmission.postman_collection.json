@@ -1,0 +1,512 @@
+{
+  "info": {
+    "_postman_id": "acfb2cc0-fb52-4c30-a096-27517cf79dd4",
+    "name": "Healthcare Readmission Intervention Queue",
+    "description": "Postman collection for the Diabetes Readmission Intervention Queue FastAPI application.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    },
+    {
+      "key": "encounter_id",
+      "value": "12522",
+      "type": "string"
+    },
+    {
+      "key": "queued_encounter_id",
+      "value": "438529178",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Encounters",
+      "item": [
+        {
+          "name": "List Encounters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/encounters?limit=10&offset=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "encounters"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "Lists encounters with pagination. limit must be 1–1000 and offset must be 0 or greater."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Response is an array', () => pm.expect(pm.response.json()).to.be.an('array'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Encounter",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/encounters/{{encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "encounters",
+                "{{encounter_id}}"
+              ]
+            },
+            "description": "Returns one encounter by encounter_id."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Encounter ID matches', () => pm.expect(String(pm.response.json().encounter_id)).to.eql(pm.collectionVariables.get('encounter_id')));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Missing Encounter (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/encounters/999",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "encounters",
+                "999"
+              ]
+            },
+            "description": "Demonstrates the useful 404 response for an unknown encounter."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 404', () => pm.response.to.have.status(404));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Care Queue",
+      "item": [
+        {
+          "name": "Get Care Queue",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/care-queue",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "care-queue"
+              ]
+            },
+            "description": "Returns one actionable intervention per eligible patient whose peak risk was MEDIUM or HIGH."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Every item has peak risk', () => pm.response.json().forEach(item => pm.expect(['MEDIUM', 'HIGH']).to.include(item.peak_risk_level)));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get High-Risk Care Queue",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/care-queue/high",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "care-queue",
+                "high"
+              ]
+            },
+            "description": "Returns patients whose peak risk level is HIGH."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Every item has HIGH peak risk', () => pm.response.json().forEach(item => pm.expect(item.peak_risk_level).to.eql('HIGH')));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interventions",
+      "item": [
+        {
+          "name": "Assign Intervention",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"ASSIGNED\",\n  \"assigned_to\": \"Care Team A\",\n  \"notes\": \"Patient assigned for follow-up\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interventions/{{queued_encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interventions",
+                "{{queued_encounter_id}}"
+              ]
+            },
+            "description": "Assigns an existing queued intervention to a care team."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Intervention is assigned', () => pm.expect(pm.response.json().status).to.eql('ASSIGNED'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mark Intervention Contacted",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CONTACTED\",\n  \"notes\": \"Patient contacted successfully\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interventions/{{queued_encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interventions",
+                "{{queued_encounter_id}}"
+              ]
+            },
+            "description": "Moves the same intervention to CONTACTED. Fields omitted from the request keep their existing values."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Intervention is contacted', () => pm.expect(pm.response.json().status).to.eql('CONTACTED'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Schedule Follow-Up",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"FOLLOW_UP_SCHEDULED\",\n  \"notes\": \"Follow-up appointment scheduled\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interventions/{{queued_encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interventions",
+                "{{queued_encounter_id}}"
+              ]
+            },
+            "description": "Moves the intervention to FOLLOW_UP_SCHEDULED."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Follow-up is scheduled', () => pm.expect(pm.response.json().status).to.eql('FOLLOW_UP_SCHEDULED'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close Intervention",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"CLOSED\",\n  \"notes\": \"Follow-up workflow completed\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interventions/{{queued_encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interventions",
+                "{{queued_encounter_id}}"
+              ]
+            },
+            "description": "Closes the intervention."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Intervention is closed', () => pm.expect(pm.response.json().status).to.eql('CLOSED'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid Intervention Status (422)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"INVALID_STATUS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/interventions/{{queued_encounter_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "interventions",
+                "{{queued_encounter_id}}"
+              ]
+            },
+            "description": "Demonstrates Pydantic validation for an unsupported status."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 422', () => pm.response.to.have.status(422));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Operations and Management",
+      "item": [
+        {
+          "name": "Get Operations Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/operations/summary",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "operations",
+                "summary"
+              ]
+            },
+            "description": "Returns stored encounter totals by risk level and intervention workload counts."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Readmission Analysis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/operations/readmission-analysis",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "operations",
+                "readmission-analysis"
+              ]
+            },
+            "description": "Compares encounter-level risk groups with the historical <30-day readmission outcome."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('High-risk rate is returned', () => pm.expect(pm.response.json()).to.have.property('high_risk_readmission_rate'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get Management Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/management/dashboard",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "management",
+                "dashboard"
+              ]
+            },
+            "description": "Returns executive-level encounter, queue, workflow, and readmission metrics."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+                  "pm.test('Queue size is returned', () => pm.expect(pm.response.json()).to.have.property('care_queue_size'));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
