@@ -145,8 +145,11 @@ def search_encounters(
         conditions.append(sql.SQL("pe.patient_nbr = %s"))
         parameters.append(patientNbr)
     if riskLevel:
-        conditions.append(sql.SQL("pe.risk_level = %s"))
-        parameters.append(riskLevel)
+        if riskLevel == 'All':
+            conditions.append(sql.SQL("pe.risk_level IN ('HIGH', 'MEDIUM', 'LOW')"))
+        else:
+            conditions.append(sql.SQL("pe.risk_level = %s"))
+            parameters.append(riskLevel)
     if riskScore is not None:
         conditions.append(sql.SQL("pe.risk_score = %s"))
         parameters.append(riskScore)
@@ -182,6 +185,7 @@ def search_encounters(
                 ELSE 4
             END,
             pe.encounter_id
+        LIMIT 100
         """
     ).format(where_clause=where_clause)
 
