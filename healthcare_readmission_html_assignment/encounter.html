@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diabetes Patient Management - Add Encounter</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>Diabetes Patient Management</header>
+        <main>
+            <a class="back-link" href="index.html">&lt; Back to Search</a>
+
+            <section class="card">
+                <h2 class="card-title">Add a Patient Encounter</h2>
+                <form id="encounter-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="patient_nbr">Patient Number</label>
+                            <input type="number" id="patient_nbr" name="patient_nbr">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <select id="age" name="age">
+                                <option value="[80-90]">[80-90]</option>
+                                <option value="[60-80]">[60-80]</option>
+                                <option value="[40-60]">[40-60]</option>
+                                <option value="[20-40]">[20-40]</option>
+                                <option value="[0-20]">[0-20]</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="time_in_hospital">Time in Hospital (days)</label>
+                            <input type="number" id="time_in_hospital" name="time_in_hospital" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="number_inpatient">Inpatient Visits</label>
+                            <input type="number" id="number_inpatient" name="number_inpatient" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="number_emergency">Emergency Room Visits</label>
+                            <input type="number" id="number_emergency" name="number_emergency" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="num_medications">Medications</label>
+                            <input type="number" id="num_medications" name="num_medications" min="0">
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button type="submit">Add Encounter</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2 class="card-title">Added Encounters</h2>
+                <div id="encounter-result"></div>
+                <div class="table-wrapper">
+                    <table id="encounter-table">
+                        <thead>
+                            <tr>
+                                <th>Encounter ID</th>
+                                <th>Patient Number</th>
+                                <th>Age</th>
+                            </tr>
+                        </thead>
+                        <tbody id="encounter-rows"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <script>
+            document.getElementById('encounter-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const encounter = {
+                    encounter_id: Date.now(),
+                    patient_nbr: document.querySelector('#patient_nbr').value,
+                    age: document.querySelector('#age').value,
+                    time_in_hospital: document.querySelector('#time_in_hospital').value,
+                    number_inpatient: document.querySelector('#number_inpatient').value,
+                    number_emergency: document.querySelector('#number_emergency').value,
+                    number_outpatient: 1,
+                    num_medications: document.querySelector('#num_medications').value,
+                    num_lab_procedures: 12,
+                    discharge_disposition_id: 1,
+                    admission_type_id: 1,
+                    readmitted: "NO",
+                };
+                fetch('http://localhost:8002/encounters', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(encounter),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${data.encounter_id}</td>
+                        <td>${data.patient_nbr}</td>
+                        <td>${data.age}</td>
+                    `;
+                    document.getElementById('encounter-rows').appendChild(row);
+                });
+            });
+        </script>
+    </body>
+</html>

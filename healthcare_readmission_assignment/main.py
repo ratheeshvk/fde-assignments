@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Query
-
+from fastapi.middleware.cors import CORSMiddleware
 import service
 from models import (
     CareIntervention,
@@ -16,6 +16,7 @@ app = FastAPI(
     description="Learning prototype — not for clinical decision-making.",
 )
 
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 @app.get("/encounters", response_model=list[Encounter])
 def list_encounters(
@@ -23,6 +24,18 @@ def list_encounters(
     offset: int = Query(0, ge=0),
 ):
     return service.list_encounters(limit, offset)
+
+@app.post("/encounters", response_model=Encounter)
+def add_encounter(encounter: Encounter):
+    return service.add_encounter(encounter)
+
+@app.get("/encounters/search", response_model=list[Encounter])
+def search_encounters(
+    patientNbr: int | None = None,
+    riskLevel: str | None = None,
+    riskScore: int | None = None,
+):
+    return service.search_encounters(patientNbr, riskLevel, riskScore)
 
 
 @app.get("/encounters/{encounter_id}", response_model=Encounter)

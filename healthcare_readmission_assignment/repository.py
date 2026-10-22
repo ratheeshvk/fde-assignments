@@ -1,5 +1,6 @@
 """Data access layer — SQL queries live here."""
 
+from psycopg import sql
 from psycopg.rows import dict_row
 
 from database import get_connection
@@ -132,7 +133,94 @@ def get_encounter_by_id(encounter_id: int) -> dict | None:
             )
             return cursor.fetchone()
 
+def search_encounters(
+    patientNbr: int | None,
+    riskLevel: str | None,
+    riskScore: int | None,
+) -> list[dict]:
+    conditions: list[sql.Composable] = []
+    parameters: list[int | str] = []
 
+    if patientNbr is not None:
+        conditions.append(sql.SQL("pe.patient_nbr = %s"))
+        parameters.append(patientNbr)
+    if riskLevel:
+        conditions.append(sql.SQL("pe.risk_level = %s"))
+        parameters.append(riskLevel)
+    if riskScore is not None:
+        conditions.append(sql.SQL("pe.risk_score = %s"))
+        parameters.append(riskScore)
+
+    where_clause = (
+        sql.SQL("WHERE {}").format(sql.SQL(" AND ").join(conditions))
+        if conditions
+        else sql.SQL("")
+    )
+    query = sql.SQL(
+        """
+        SELECT
+            pe.*,
+            COALESCE(ci.status, '') AS status,
+            COALESCE(ci.assigned_to, '') AS assigned_to
+        FROM patient_encounters pe
+        LEFT JOIN care_interventions ci
+            ON ci.encounter_id = pe.encounter_id
+        {where_clause}
+        ORDER BY
+            CASE ci.status
+                WHEN 'PENDING_REVIEW' THEN 1
+                WHEN 'ASSIGNED' THEN 2
+                WHEN 'CONTACTED' THEN 3
+                WHEN 'FOLLOW_UP_SCHEDULED' THEN 4
+                WHEN 'CLOSED' THEN 5
+                ELSE 6
+            END,
+            CASE pe.risk_level
+                WHEN 'HIGH' THEN 1
+                WHEN 'MEDIUM' THEN 2
+                WHEN 'LOW' THEN 3
+                ELSE 4
+            END,
+            pe.encounter_id
+        """
+    ).format(where_clause=where_clause)
+
+    with get_connection() as conn:
+        with conn.cursor(row_factory=dict_row) as cursor:
+            cursor.execute(
+                query,
+                parameters,
+            )
+            return cursor.fetchall()
+
+def add_encounter(encounter: Encounter) -> None:
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                INSERT INTO patient_encounters (
+                    encounter_id, patient_nbr, age, time_in_hospital,
+                    number_inpatient, number_emergency, number_outpatient,
+                    num_medications, num_lab_procedures,
+                    discharge_disposition_id, admission_type_id, readmitted
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """,
+                (
+                    encounter.encounter_id,
+                    encounter.patient_nbr,
+                    encounter.age,
+                    encounter.time_in_hospital,
+                    encounter.number_inpatient,
+                    encounter.number_emergency,
+                    encounter.number_outpatient,
+                    encounter.num_medications,
+                    encounter.num_lab_procedures,
+                    encounter.discharge_disposition_id,
+                    encounter.admission_type_id,
+                    encounter.readmitted,
+                ),
+            )
+        conn.commit()
 def bulk_update_risks(updates: list[tuple[int, int, str]]) -> int:
     """
     Batch-update risk fields.

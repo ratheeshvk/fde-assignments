@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diabetes Patient Management - Update Intervention</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>Diabetes Patient Management</header>
+        <main>
+            <a class="back-link" href="index.html">&lt; Back to Search</a>
+
+            <section class="card">
+                <h2 class="card-title">Update Intervention</h2>
+                <form id="intervention-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="encounter_id">Encounter Id</label>
+                            <input type="number" id="encounter_id" name="encounter_id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="patient_nbr">Patient Number</label>
+                            <input type="text" id="patient_nbr" name="patient_nbr" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status" name="status">
+                                <option value="PENDING_REVIEW">PENDING_REVIEW</option>
+                                <option value="ASSIGNED">ASSIGNED</option>
+                                <option value="CONTACTED">CONTACTED</option>
+                                <option value="FOLLOW_UP_SCHEDULED">FOLLOW_UP_SCHEDULED</option>
+                                <option value="CLOSED">CLOSED</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="assigned_to">Assigned To</label>
+                            <input type="text" id="assigned_to" name="assigned_to">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button type="submit">Update</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card">
+                <h2 class="card-title">Updates</h2>
+                <div class="table-wrapper">
+                    <table id="intervention-updates-table">
+                        <thead>
+                            <tr>
+                                <th>Intervention ID</th>
+                                <th>Encounter ID</th>
+                                <th>Status</th>
+                                <th>Assigned To</th>
+                                <th>Notes</th>
+                                <th>Updated At</th>
+                            </tr>
+                        </thead>
+                        <tbody id="intervention-updates-rows"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            const encounterId = params.get('encounter_id');
+            const patientNbr = params.get('patient_nbr');
+
+            if (encounterId) {
+                document.getElementById('encounter_id').value = encounterId;
+            }
+            if (patientNbr) {
+                document.getElementById('patient_nbr').value = patientNbr;
+            }
+
+            const interventionForm = document.getElementById('intervention-form');
+            interventionForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const encounterId = document.getElementById('encounter_id').value;
+                const status = document.getElementById('status').value;
+                const assignedTo = document.getElementById('assigned_to').value;
+                const notes = document.getElementById('notes').value;
+
+                const payload = { status, notes };
+                if (assignedTo) {
+                    payload.assigned_to = assignedTo;
+                }
+
+                const response = await fetch(
+                    `http://localhost:8002/interventions/${encounterId}`,
+                    {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    }
+                );
+                const data = await response.json();
+                console.log(data);
+
+                if (!response.ok) {
+                    alert(data.detail || 'Update failed');
+                    return;
+                }
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${data.intervention_id}</td>
+                    <td>${data.encounter_id}</td>
+                    <td>${data.status}</td>
+                    <td>${data.assigned_to ?? ''}</td>
+                    <td>${data.notes ?? ''}</td>
+                    <td>${data.updated_at}</td>
+                `;
+                document.getElementById('intervention-updates-rows').prepend(row);
+            });
+        </script>
+    </body>
+</html>

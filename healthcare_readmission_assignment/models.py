@@ -22,14 +22,16 @@ class Encounter(BaseModel):
     time_in_hospital: int
     number_inpatient: int
     number_emergency: int
-    number_outpatient: int
+    number_outpatient: int = 0
     num_medications: int
-    num_lab_procedures: int
-    discharge_disposition_id: int
-    admission_type_id: int
-    readmitted: ReadmittedOutcome
+    num_lab_procedures: int = 0
+    discharge_disposition_id: int = 1
+    admission_type_id: int = 1
+    readmitted: ReadmittedOutcome = "NO"
     risk_score: int | None = None
     risk_level: RiskLevel | None = None
+    status: str = ""
+    assigned_to: str = ""
 
 
 class CareIntervention(BaseModel):

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Patient Management - Search Patient</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>Diabetes Patient Management</header>
+    <main>
+        <section class="card">
+            <h2 class="card-title">Search Patient</h2>
+            <form id="search-form">
+                <div class="form-grid three-columns">
+                    <div class="form-group">
+                        <label for="patient_nbr">Patient Number</label>
+                        <input type="text" id="patient_nbr" name="patient_nbr">
+                    </div>
+                    <div class="form-group">
+                        <label for="risk_level">Risk Level</label>
+                        <select id="risk_level" name="risk_level">
+                            <option value="">All</option>
+                            <option value="HIGH">HIGH</option>
+                            <option value="MEDIUM">MEDIUM</option>
+                            <option value="LOW">LOW</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="risk_score">Risk Score</label>
+                        <input type="number" id="risk_score" name="risk_score">
+                    </div>
+                </div>
+                <div class="actions">
+                    <button type="submit">Search &gt;</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2 class="card-title">Results</h2>
+            <div class="table-wrapper">
+                <table id="search-results-table">
+                    <thead>
+                        <tr>
+                            <th>Encounter ID</th>
+                            <th>Patient Number</th>
+                            <th>Age</th>
+                            <th>Risk Score</th>
+                            <th>Risk Level</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                        </tr>
+                    </thead>
+                    <tbody id="search-results-rows"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script>
+        const searchForm = document.getElementById('search-form');
+        searchForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const patientNbr = document.getElementById('patient_nbr').value;
+            const riskLevel = document.getElementById('risk_level').value;
+            const riskScore = document.getElementById('risk_score').value;
+
+            const params = new URLSearchParams();
+            if (patientNbr) params.append('patientNbr', patientNbr);
+            if (riskLevel) params.append('riskLevel', riskLevel);
+            if (riskScore) params.append('riskScore', riskScore);
+
+            const response = await fetch(
+                `http://localhost:8002/encounters/search?${params.toString()}`
+            );
+            const data = await response.json();
+            console.log(data);
+            const searchResultsRows = document.getElementById('search-results-rows');
+            searchResultsRows.innerHTML = '';
+            data.forEach(encounter => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <a href="intervention-update.html?encounter_id=${encounter.encounter_id}&patient_nbr=${encounter.patient_nbr}">
+                            ${encounter.encounter_id}
+                        </a>
+                    </td>
+                    <td>${encounter.patient_nbr}</td>
+                    <td>${encounter.age}</td>
+                    <td>${encounter.risk_score}</td>
+                    <td>${encounter.risk_level}</td>
+                    <td>${encounter.status}</td>
+                    <td>${encounter.assigned_to}</td>
+                `;
+                searchResultsRows.appendChild(row);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

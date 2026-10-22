@@ -53,6 +53,19 @@ def get_encounter(encounter_id: int) -> Encounter:
         raise HTTPException(status_code=404, detail="Encounter not found")
     return Encounter(**row)
 
+def add_encounter(encounter: Encounter) -> Encounter:
+    repository.add_encounter(encounter)
+    return encounter
+
+
+def search_encounters(
+    patientNbr: int | None,
+    riskLevel: str | None,
+    riskScore: int | None,
+) -> list[Encounter]:
+    rows = repository.search_encounters(patientNbr, riskLevel, riskScore)
+    return [Encounter(**row) for row in rows]
+
 
 def score_all_encounters() -> dict:
     counts = {"LOW": 0, "MEDIUM": 0, "HIGH": 0}
