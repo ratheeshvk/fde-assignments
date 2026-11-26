@@ -1,0 +1,8 @@
+# Tested with Python 3.13 (3.12 also works); use a fresh .venv
+psycopg[binary]>=3.2,<4
+pgvector>=0.4,<1
+fastembed>=0.6,<1
+python-dotenv>=1,<2
+langchain-text-splitters>=0.3,<2
+numpy>=1.26
+PyYAML>=6

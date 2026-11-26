@@ -1,0 +1,1240 @@
+{
+  "documents": 30,
+  "questions": [
+    {
+      "question": "How does a Kubernetes Deployment manage application replicas?",
+      "expected": "APP-deployment",
+      "area": "application_engineering",
+      "assignment": true,
+      "answer_terms": [
+        "ReplicaSet",
+        "replicas"
+      ]
+    },
+    {
+      "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+      "expected": "PLAT-persistent-volumes",
+      "area": "platform_engineering",
+      "assignment": true,
+      "answer_terms": [
+        "PersistentVolumeClaim",
+        "request for storage"
+      ]
+    },
+    {
+      "question": "What are recommended Kubernetes RBAC practices?",
+      "expected": "SEC-rbac-good-practices",
+      "area": "security_engineering",
+      "assignment": true,
+      "answer_terms": [
+        "least privilege"
+      ]
+    },
+    {
+      "question": "What are the main Kubernetes components?",
+      "expected": "SHR-components",
+      "area": "shared",
+      "assignment": true,
+      "answer_terms": [
+        "kube-apiserver",
+        "etcd"
+      ]
+    },
+    {
+      "question": "How do I run a Job on a repeating schedule?",
+      "expected": "APP-cron-jobs",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "repeating schedule"
+      ]
+    },
+    {
+      "question": "How do I roll back a Deployment to a previous revision?",
+      "expected": "APP-deployment",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "rollout undo"
+      ]
+    },
+    {
+      "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+      "expected": "APP-horizontal-pod-autoscale",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "desiredReplicas"
+      ]
+    },
+    {
+      "question": "How do init containers differ from regular app containers?",
+      "expected": "APP-init-containers",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "run to completion"
+      ]
+    },
+    {
+      "question": "What stable network identity does a StatefulSet give each Pod?",
+      "expected": "APP-statefulset",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "ordinal",
+        "hostname"
+      ]
+    },
+    {
+      "question": "What does the restartPolicy field of a Pod control?",
+      "expected": "APP-pod-lifecycle",
+      "area": "application_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "restartPolicy",
+        "OnFailure"
+      ]
+    },
+    {
+      "question": "How can I take a point-in-time snapshot of a volume?",
+      "expected": "PLAT-volume-snapshots",
+      "area": "platform_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "VolumeSnapshot"
+      ]
+    },
+    {
+      "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+      "expected": "PLAT-persistent-volumes",
+      "area": "platform_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "ReadWriteOnce",
+        "ReadOnlyMany",
+        "ReadWriteMany"
+      ]
+    },
+    {
+      "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+      "expected": "PLAT-storage-classes",
+      "area": "platform_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "WaitForFirstConsumer"
+      ]
+    },
+    {
+      "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+      "expected": "PLAT-persistent-volumes",
+      "area": "platform_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "Retain",
+        "manual reclamation"
+      ]
+    },
+    {
+      "question": "How do I clone an existing PVC using a dataSource?",
+      "expected": "PLAT-volume-pvc-datasource",
+      "area": "platform_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "dataSource"
+      ]
+    },
+    {
+      "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+      "expected": "SEC-pod-security-standards",
+      "area": "security_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "Privileged",
+        "Baseline",
+        "Restricted"
+      ]
+    },
+    {
+      "question": "Why is granting the escalate or bind verbs on roles risky?",
+      "expected": "SEC-rbac-good-practices",
+      "area": "security_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "escalate",
+        "bind"
+      ]
+    },
+    {
+      "question": "Should Secrets be encrypted at rest in etcd?",
+      "expected": "SEC-secrets-good-practices",
+      "area": "security_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "encryption at rest"
+      ]
+    },
+    {
+      "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+      "expected": "SEC-controlling-access",
+      "area": "security_engineering",
+      "assignment": false,
+      "answer_terms": [
+        "Authentication",
+        "Authorization",
+        "Admission control"
+      ]
+    },
+    {
+      "question": "How do namespaces isolate groups of resources within a cluster?",
+      "expected": "SHR-namespaces",
+      "area": "shared",
+      "assignment": false,
+      "answer_terms": [
+        "isolating groups of resources"
+      ]
+    }
+  ],
+  "strategies": {
+    "fixed": {
+      "total_chunks": 831,
+      "avg_chars": 787,
+      "median_chars": 800,
+      "min_chars": 106,
+      "max_chars": 800,
+      "avg_tokens": 207,
+      "max_tokens": 365,
+      "over_512_tokens": 0,
+      "tiny_under_150_chars": 5,
+      "configured_overlap": 100,
+      "measured_avg_overlap_chars": 100,
+      "heading_path_carried_pct": 0.0,
+      "starts_at_heading_pct": 4.0,
+      "clean_end_pct": 6.0,
+      "mid_word_cut_pct": 84.6,
+      "broken_code_fence_pct": 11.8,
+      "retrieval": {
+        "hit@1": 0.9,
+        "hit@5": 1.0,
+        "mrr": 0.95,
+        "answer@1": 0.45,
+        "answer@3": 0.65,
+        "avg_top5_context_chars": 3942.8,
+        "per_question": [
+          {
+            "question": "How does a Kubernetes Deployment manage application replicas?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": null,
+            "top1_distance": 0.157
+          },
+          {
+            "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 5,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1988
+          },
+          {
+            "question": "What are recommended Kubernetes RBAC practices?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.1736
+          },
+          {
+            "question": "What are the main Kubernetes components?",
+            "expected": "SHR-components",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SHR-components",
+            "top1_heading": null,
+            "top1_distance": 0.1359
+          },
+          {
+            "question": "How do I run a Job on a repeating schedule?",
+            "expected": "APP-cron-jobs",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "APP-cron-jobs",
+            "top1_heading": null,
+            "top1_distance": 0.2537
+          },
+          {
+            "question": "How do I roll back a Deployment to a previous revision?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": null,
+            "top1_distance": 0.1661
+          },
+          {
+            "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+            "expected": "APP-horizontal-pod-autoscale",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-horizontal-pod-autoscale",
+            "top1_heading": null,
+            "top1_distance": 0.1216
+          },
+          {
+            "question": "How do init containers differ from regular app containers?",
+            "expected": "APP-init-containers",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-init-containers",
+            "top1_heading": null,
+            "top1_distance": 0.1864
+          },
+          {
+            "question": "What stable network identity does a StatefulSet give each Pod?",
+            "expected": "APP-statefulset",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 6,
+            "top1_document": "APP-statefulset",
+            "top1_heading": null,
+            "top1_distance": 0.153
+          },
+          {
+            "question": "What does the restartPolicy field of a Pod control?",
+            "expected": "APP-pod-lifecycle",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-pod-lifecycle",
+            "top1_heading": null,
+            "top1_distance": 0.1863
+          },
+          {
+            "question": "How can I take a point-in-time snapshot of a volume?",
+            "expected": "PLAT-volume-snapshots",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-volume-snapshots",
+            "top1_heading": null,
+            "top1_distance": 0.2625
+          },
+          {
+            "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1748
+          },
+          {
+            "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+            "expected": "PLAT-storage-classes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "PLAT-storage-classes",
+            "top1_heading": null,
+            "top1_distance": 0.1916
+          },
+          {
+            "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1547
+          },
+          {
+            "question": "How do I clone an existing PVC using a dataSource?",
+            "expected": "PLAT-volume-pvc-datasource",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.2237
+          },
+          {
+            "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+            "expected": "SEC-pod-security-standards",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-pod-security-standards",
+            "top1_heading": null,
+            "top1_distance": 0.1505
+          },
+          {
+            "question": "Why is granting the escalate or bind verbs on roles risky?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.2397
+          },
+          {
+            "question": "Should Secrets be encrypted at rest in etcd?",
+            "expected": "SEC-secrets-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "SEC-secrets-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.258
+          },
+          {
+            "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+            "expected": "SEC-controlling-access",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 10,
+            "top1_document": "SHR-kubernetes-api",
+            "top1_heading": null,
+            "top1_distance": 0.2017
+          },
+          {
+            "question": "How do namespaces isolate groups of resources within a cluster?",
+            "expected": "SHR-namespaces",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SHR-namespaces",
+            "top1_heading": null,
+            "top1_distance": 0.1771
+          }
+        ]
+      }
+    },
+    "recursive": {
+      "total_chunks": 961,
+      "avg_chars": 613,
+      "median_chars": 661,
+      "min_chars": 3,
+      "max_chars": 800,
+      "avg_tokens": 162,
+      "max_tokens": 389,
+      "over_512_tokens": 0,
+      "tiny_under_150_chars": 16,
+      "configured_overlap": 100,
+      "measured_avg_overlap_chars": 18.1,
+      "heading_path_carried_pct": 0.0,
+      "starts_at_heading_pct": 27.9,
+      "clean_end_pct": 99.7,
+      "mid_word_cut_pct": 0.3,
+      "broken_code_fence_pct": 2.3,
+      "retrieval": {
+        "hit@1": 0.9,
+        "hit@5": 1.0,
+        "mrr": 0.9416666666666667,
+        "answer@1": 0.5,
+        "answer@3": 0.8,
+        "avg_top5_context_chars": 3102.95,
+        "per_question": [
+          {
+            "question": "How does a Kubernetes Deployment manage application replicas?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": null,
+            "top1_distance": 0.1651
+          },
+          {
+            "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1789
+          },
+          {
+            "question": "What are recommended Kubernetes RBAC practices?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.1783
+          },
+          {
+            "question": "What are the main Kubernetes components?",
+            "expected": "SHR-components",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "SHR-overview",
+            "top1_heading": null,
+            "top1_distance": 0.1335
+          },
+          {
+            "question": "How do I run a Job on a repeating schedule?",
+            "expected": "APP-cron-jobs",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-cron-jobs",
+            "top1_heading": null,
+            "top1_distance": 0.2547
+          },
+          {
+            "question": "How do I roll back a Deployment to a previous revision?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": null,
+            "top1_distance": 0.1803
+          },
+          {
+            "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+            "expected": "APP-horizontal-pod-autoscale",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-horizontal-pod-autoscale",
+            "top1_heading": null,
+            "top1_distance": 0.1261
+          },
+          {
+            "question": "How do init containers differ from regular app containers?",
+            "expected": "APP-init-containers",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "APP-init-containers",
+            "top1_heading": null,
+            "top1_distance": 0.1547
+          },
+          {
+            "question": "What stable network identity does a StatefulSet give each Pod?",
+            "expected": "APP-statefulset",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "APP-statefulset",
+            "top1_heading": null,
+            "top1_distance": 0.1374
+          },
+          {
+            "question": "What does the restartPolicy field of a Pod control?",
+            "expected": "APP-pod-lifecycle",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-pod-lifecycle",
+            "top1_heading": null,
+            "top1_distance": 0.1866
+          },
+          {
+            "question": "How can I take a point-in-time snapshot of a volume?",
+            "expected": "PLAT-volume-snapshots",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-volume-snapshots",
+            "top1_heading": null,
+            "top1_distance": 0.2754
+          },
+          {
+            "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1426
+          },
+          {
+            "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+            "expected": "PLAT-storage-classes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-storage-classes",
+            "top1_heading": null,
+            "top1_distance": 0.2133
+          },
+          {
+            "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1088
+          },
+          {
+            "question": "How do I clone an existing PVC using a dataSource?",
+            "expected": "PLAT-volume-pvc-datasource",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-volume-pvc-datasource",
+            "top1_heading": null,
+            "top1_distance": 0.201
+          },
+          {
+            "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+            "expected": "SEC-pod-security-standards",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "SEC-pod-security-standards",
+            "top1_heading": null,
+            "top1_distance": 0.1619
+          },
+          {
+            "question": "Why is granting the escalate or bind verbs on roles risky?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.2405
+          },
+          {
+            "question": "Should Secrets be encrypted at rest in etcd?",
+            "expected": "SEC-secrets-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "SEC-secrets-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.2213
+          },
+          {
+            "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+            "expected": "SEC-controlling-access",
+            "first_relevant_rank": 3,
+            "answer_chunk_rank": 30,
+            "top1_document": "SHR-kubernetes-api",
+            "top1_heading": null,
+            "top1_distance": 0.1988
+          },
+          {
+            "question": "How do namespaces isolate groups of resources within a cluster?",
+            "expected": "SHR-namespaces",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "SHR-namespaces",
+            "top1_heading": null,
+            "top1_distance": 0.1718
+          }
+        ]
+      }
+    },
+    "structure": {
+      "total_chunks": 478,
+      "avg_chars": 1199,
+      "median_chars": 775,
+      "min_chars": 86,
+      "max_chars": 13539,
+      "avg_tokens": 319,
+      "max_tokens": 4863,
+      "over_512_tokens": 73,
+      "tiny_under_150_chars": 13,
+      "configured_overlap": 0,
+      "measured_avg_overlap_chars": 0,
+      "heading_path_carried_pct": 100.0,
+      "starts_at_heading_pct": 100.0,
+      "clean_end_pct": 100.0,
+      "mid_word_cut_pct": 0.0,
+      "broken_code_fence_pct": 0.0,
+      "retrieval": {
+        "hit@1": 0.9,
+        "hit@5": 1.0,
+        "mrr": 0.95,
+        "answer@1": 0.65,
+        "answer@3": 0.8,
+        "avg_top5_context_chars": 8168.2,
+        "per_question": [
+          {
+            "question": "How does a Kubernetes Deployment manage application replicas?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": "Deployments",
+            "top1_distance": 0.1726
+          },
+          {
+            "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > PersistentVolumeClaims",
+            "top1_distance": 0.1718
+          },
+          {
+            "question": "What are recommended Kubernetes RBAC practices?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 5,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": "Role Based Access Control Good Practices",
+            "top1_distance": 0.1772
+          },
+          {
+            "question": "What are the main Kubernetes components?",
+            "expected": "SHR-components",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 5,
+            "top1_document": "SHR-components",
+            "top1_heading": "Kubernetes Components",
+            "top1_distance": 0.1459
+          },
+          {
+            "question": "How do I run a Job on a repeating schedule?",
+            "expected": "APP-cron-jobs",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 4,
+            "top1_document": "APP-cron-jobs",
+            "top1_heading": "CronJob > Writing a CronJob spec > Schedule suspension",
+            "top1_distance": 0.2764
+          },
+          {
+            "question": "How do I roll back a Deployment to a previous revision?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": "Deployments > Rolling Back a Deployment > Rolling Back to a Previous Revision",
+            "top1_distance": 0.1717
+          },
+          {
+            "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+            "expected": "APP-horizontal-pod-autoscale",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-horizontal-pod-autoscale",
+            "top1_heading": "Horizontal Pod Autoscaling > How does a HorizontalPodAutoscaler work? > Algorithm details",
+            "top1_distance": 0.1395
+          },
+          {
+            "question": "How do init containers differ from regular app containers?",
+            "expected": "APP-init-containers",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-init-containers",
+            "top1_heading": "Init Containers > Using init containers",
+            "top1_distance": 0.1377
+          },
+          {
+            "question": "What stable network identity does a StatefulSet give each Pod?",
+            "expected": "APP-statefulset",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 3,
+            "top1_document": "APP-statefulset",
+            "top1_heading": "StatefulSets > Pod Identity",
+            "top1_distance": 0.1049
+          },
+          {
+            "question": "What does the restartPolicy field of a Pod control?",
+            "expected": "APP-pod-lifecycle",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-pod-lifecycle",
+            "top1_heading": "Pod Lifecycle > How Pods handle problems with containers > Container restarts",
+            "top1_distance": 0.2031
+          },
+          {
+            "question": "How can I take a point-in-time snapshot of a volume?",
+            "expected": "PLAT-volume-snapshots",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-volume-snapshots",
+            "top1_heading": "Volume Snapshots > Introduction",
+            "top1_distance": 0.2777
+          },
+          {
+            "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Persistent Volumes > Access Modes",
+            "top1_distance": 0.1854
+          },
+          {
+            "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+            "expected": "PLAT-storage-classes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-storage-classes",
+            "top1_heading": "Storage Classes > Volume binding mode",
+            "top1_distance": 0.185
+          },
+          {
+            "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Lifecycle of a volume and claim > Reclaiming",
+            "top1_distance": 0.1386
+          },
+          {
+            "question": "How do I clone an existing PVC using a dataSource?",
+            "expected": "PLAT-volume-pvc-datasource",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Volume Cloning > Create PersistentVolumeClaim from an existing PVC",
+            "top1_distance": 0.2111
+          },
+          {
+            "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+            "expected": "SEC-pod-security-standards",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-pod-security-standards",
+            "top1_heading": "Pod Security Standards > Profile Details > Baseline",
+            "top1_distance": 0.1727
+          },
+          {
+            "question": "Why is granting the escalate or bind verbs on roles risky?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Bind verb",
+            "top1_distance": 0.1964
+          },
+          {
+            "question": "Should Secrets be encrypted at rest in etcd?",
+            "expected": "SEC-secrets-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-secrets-good-practices",
+            "top1_heading": "Good practices for Kubernetes Secrets > Cluster administrators > Configure encryption at rest",
+            "top1_distance": 0.1885
+          },
+          {
+            "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+            "expected": "SEC-controlling-access",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 21,
+            "top1_document": "SHR-kubernetes-api",
+            "top1_heading": "The Kubernetes API",
+            "top1_distance": 0.205
+          },
+          {
+            "question": "How do namespaces isolate groups of resources within a cluster?",
+            "expected": "SHR-namespaces",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SHR-namespaces",
+            "top1_heading": "Namespaces",
+            "top1_distance": 0.1807
+          }
+        ]
+      }
+    },
+    "semantic": {
+      "total_chunks": 507,
+      "avg_chars": 1130,
+      "median_chars": 754,
+      "min_chars": 2,
+      "max_chars": 12205,
+      "avg_tokens": 293,
+      "max_tokens": 4796,
+      "over_512_tokens": 86,
+      "tiny_under_150_chars": 75,
+      "configured_overlap": 0,
+      "measured_avg_overlap_chars": 0,
+      "heading_path_carried_pct": 0.0,
+      "starts_at_heading_pct": 24.1,
+      "clean_end_pct": 100.0,
+      "mid_word_cut_pct": 0.0,
+      "broken_code_fence_pct": 2.0,
+      "retrieval": {
+        "hit@1": 0.85,
+        "hit@5": 1.0,
+        "mrr": 0.9166666666666666,
+        "answer@1": 0.5,
+        "answer@3": 0.85,
+        "avg_top5_context_chars": 5724.3,
+        "per_question": [
+          {
+            "question": "How does a Kubernetes Deployment manage application replicas?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-replicaset",
+            "top1_heading": null,
+            "top1_distance": 0.1469
+          },
+          {
+            "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.166
+          },
+          {
+            "question": "What are recommended Kubernetes RBAC practices?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.181
+          },
+          {
+            "question": "What are the main Kubernetes components?",
+            "expected": "SHR-components",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "SHR-overview",
+            "top1_heading": null,
+            "top1_distance": 0.1335
+          },
+          {
+            "question": "How do I run a Job on a repeating schedule?",
+            "expected": "APP-cron-jobs",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 12,
+            "top1_document": "APP-cron-jobs",
+            "top1_heading": null,
+            "top1_distance": 0.2489
+          },
+          {
+            "question": "How do I roll back a Deployment to a previous revision?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": null,
+            "top1_distance": 0.1822
+          },
+          {
+            "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+            "expected": "APP-horizontal-pod-autoscale",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-horizontal-pod-autoscale",
+            "top1_heading": null,
+            "top1_distance": 0.1519
+          },
+          {
+            "question": "How do init containers differ from regular app containers?",
+            "expected": "APP-init-containers",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-init-containers",
+            "top1_heading": null,
+            "top1_distance": 0.146
+          },
+          {
+            "question": "What stable network identity does a StatefulSet give each Pod?",
+            "expected": "APP-statefulset",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-statefulset",
+            "top1_heading": null,
+            "top1_distance": 0.1266
+          },
+          {
+            "question": "What does the restartPolicy field of a Pod control?",
+            "expected": "APP-pod-lifecycle",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 3,
+            "top1_document": "APP-pod-lifecycle",
+            "top1_heading": null,
+            "top1_distance": 0.1732
+          },
+          {
+            "question": "How can I take a point-in-time snapshot of a volume?",
+            "expected": "PLAT-volume-snapshots",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 5,
+            "top1_document": "PLAT-volume-snapshots",
+            "top1_heading": null,
+            "top1_distance": 0.2448
+          },
+          {
+            "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1459
+          },
+          {
+            "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+            "expected": "PLAT-storage-classes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-storage-classes",
+            "top1_heading": null,
+            "top1_distance": 0.191
+          },
+          {
+            "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": null,
+            "top1_distance": 0.1211
+          },
+          {
+            "question": "How do I clone an existing PVC using a dataSource?",
+            "expected": "PLAT-volume-pvc-datasource",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-volume-pvc-datasource",
+            "top1_heading": null,
+            "top1_distance": 0.1993
+          },
+          {
+            "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+            "expected": "SEC-pod-security-standards",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-pod-security-standards",
+            "top1_heading": null,
+            "top1_distance": 0.1415
+          },
+          {
+            "question": "Why is granting the escalate or bind verbs on roles risky?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 14,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.3167
+          },
+          {
+            "question": "Should Secrets be encrypted at rest in etcd?",
+            "expected": "SEC-secrets-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "SEC-secrets-good-practices",
+            "top1_heading": null,
+            "top1_distance": 0.2559
+          },
+          {
+            "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+            "expected": "SEC-controlling-access",
+            "first_relevant_rank": 3,
+            "answer_chunk_rank": 3,
+            "top1_document": "SHR-kubernetes-api",
+            "top1_heading": null,
+            "top1_distance": 0.2022
+          },
+          {
+            "question": "How do namespaces isolate groups of resources within a cluster?",
+            "expected": "SHR-namespaces",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SHR-namespaces",
+            "top1_heading": null,
+            "top1_distance": 0.163
+          }
+        ]
+      }
+    },
+    "structure_recursive": {
+      "total_chunks": 772,
+      "avg_chars": 756,
+      "median_chars": 789,
+      "min_chars": 14,
+      "max_chars": 1296,
+      "avg_tokens": 206,
+      "max_tokens": 588,
+      "over_512_tokens": 1,
+      "tiny_under_150_chars": 16,
+      "configured_overlap": "150 (oversized sections only)",
+      "measured_avg_overlap_chars": 15.2,
+      "heading_path_carried_pct": 100.0,
+      "starts_at_heading_pct": 62.6,
+      "clean_end_pct": 99.7,
+      "mid_word_cut_pct": 0.3,
+      "broken_code_fence_pct": 1.6,
+      "retrieval": {
+        "hit@1": 0.85,
+        "hit@5": 1.0,
+        "mrr": 0.925,
+        "answer@1": 0.65,
+        "answer@3": 0.9,
+        "avg_top5_context_chars": 3812.15,
+        "per_question": [
+          {
+            "question": "How does a Kubernetes Deployment manage application replicas?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": "Deployments",
+            "top1_distance": 0.1726
+          },
+          {
+            "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Introduction",
+            "top1_distance": 0.1563
+          },
+          {
+            "question": "What are recommended Kubernetes RBAC practices?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 21,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": "Role Based Access Control Good Practices",
+            "top1_distance": 0.1772
+          },
+          {
+            "question": "What are the main Kubernetes components?",
+            "expected": "SHR-components",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 3,
+            "top1_document": "SHR-components",
+            "top1_heading": "Kubernetes Components > Core Components",
+            "top1_distance": 0.1381
+          },
+          {
+            "question": "How do I run a Job on a repeating schedule?",
+            "expected": "APP-cron-jobs",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-job",
+            "top1_heading": "Jobs > Running an example Job",
+            "top1_distance": 0.2436
+          },
+          {
+            "question": "How do I roll back a Deployment to a previous revision?",
+            "expected": "APP-deployment",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-deployment",
+            "top1_heading": "Deployments > Rolling Back a Deployment > Rolling Back to a Previous Revision",
+            "top1_distance": 0.1574
+          },
+          {
+            "question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?",
+            "expected": "APP-horizontal-pod-autoscale",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-horizontal-pod-autoscale",
+            "top1_heading": "Horizontal Pod Autoscaling > How does a HorizontalPodAutoscaler work? > Algorithm details",
+            "top1_distance": 0.1441
+          },
+          {
+            "question": "How do init containers differ from regular app containers?",
+            "expected": "APP-init-containers",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-init-containers",
+            "top1_heading": "Init Containers > Using init containers",
+            "top1_distance": 0.1406
+          },
+          {
+            "question": "What stable network identity does a StatefulSet give each Pod?",
+            "expected": "APP-statefulset",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 2,
+            "top1_document": "APP-statefulset",
+            "top1_heading": "StatefulSets > Pod Identity",
+            "top1_distance": 0.1049
+          },
+          {
+            "question": "What does the restartPolicy field of a Pod control?",
+            "expected": "APP-pod-lifecycle",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "APP-pod-lifecycle",
+            "top1_heading": "Pod Lifecycle > How Pods handle problems with containers > Container restarts",
+            "top1_distance": 0.1785
+          },
+          {
+            "question": "How can I take a point-in-time snapshot of a volume?",
+            "expected": "PLAT-volume-snapshots",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-volume-snapshots",
+            "top1_heading": "Volume Snapshots > Introduction",
+            "top1_distance": 0.2716
+          },
+          {
+            "question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Persistent Volumes > Access Modes",
+            "top1_distance": 0.1476
+          },
+          {
+            "question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?",
+            "expected": "PLAT-storage-classes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-storage-classes",
+            "top1_heading": "Storage Classes > Volume binding mode",
+            "top1_distance": 0.1884
+          },
+          {
+            "question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?",
+            "expected": "PLAT-persistent-volumes",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Lifecycle of a volume and claim > Reclaiming",
+            "top1_distance": 0.1208
+          },
+          {
+            "question": "How do I clone an existing PVC using a dataSource?",
+            "expected": "PLAT-volume-pvc-datasource",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 2,
+            "top1_document": "PLAT-persistent-volumes",
+            "top1_heading": "Persistent Volumes > Volume Cloning > Create PersistentVolumeClaim from an existing PVC",
+            "top1_distance": 0.22
+          },
+          {
+            "question": "What is the difference between the privileged, baseline and restricted pod security levels?",
+            "expected": "SEC-pod-security-standards",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 3,
+            "top1_document": "SEC-pod-security-standards",
+            "top1_heading": "Pod Security Standards > Profile Details > Baseline",
+            "top1_distance": 0.1705
+          },
+          {
+            "question": "Why is granting the escalate or bind verbs on roles risky?",
+            "expected": "SEC-rbac-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-rbac-good-practices",
+            "top1_heading": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Bind verb",
+            "top1_distance": 0.1964
+          },
+          {
+            "question": "Should Secrets be encrypted at rest in etcd?",
+            "expected": "SEC-secrets-good-practices",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SEC-secrets-good-practices",
+            "top1_heading": "Good practices for Kubernetes Secrets > Cluster administrators > Configure encryption at rest",
+            "top1_distance": 0.2011
+          },
+          {
+            "question": "Which stages does a request pass through when it reaches the Kubernetes API server?",
+            "expected": "SEC-controlling-access",
+            "first_relevant_rank": 2,
+            "answer_chunk_rank": 20,
+            "top1_document": "SHR-kubernetes-api",
+            "top1_heading": "The Kubernetes API",
+            "top1_distance": 0.1998
+          },
+          {
+            "question": "How do namespaces isolate groups of resources within a cluster?",
+            "expected": "SHR-namespaces",
+            "first_relevant_rank": 1,
+            "answer_chunk_rank": 1,
+            "top1_document": "SHR-namespaces",
+            "top1_heading": "Namespaces",
+            "top1_distance": 0.1807
+          }
+        ]
+      }
+    }
+  }
+}

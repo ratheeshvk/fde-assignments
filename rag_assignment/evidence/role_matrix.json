@@ -1,0 +1,907 @@
+[
+  {
+    "question": "How does a Kubernetes Deployment manage application replicas?",
+    "expected": "APP-deployment",
+    "unfiltered_top": [
+      "APP-deployment",
+      "APP-deployment",
+      "APP-horizontal-pod-autoscale",
+      "APP-deployment",
+      "APP-replicaset"
+    ],
+    "users": {
+      "priya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "APP-deployment",
+            "chunk_no": 0,
+            "heading_path": "Deployments",
+            "cosine_distance": 0.1726,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-deployment",
+            "chunk_no": 56,
+            "heading_path": "Deployments > Writing a Deployment Spec > Replicas",
+            "cosine_distance": 0.1764,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-horizontal-pod-autoscale",
+            "chunk_no": 16,
+            "heading_path": "Horizontal Pod Autoscaling > Autoscaling during rolling update",
+            "cosine_distance": 0.2038,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/"
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-deployment",
+            "chunk_no": 22,
+            "heading_path": "Deployments > Rolling Back a Deployment",
+            "cosine_distance": 0.206,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-replicaset",
+            "chunk_no": 21,
+            "heading_path": "ReplicaSet > Alternatives to ReplicaSet > Deployment (recommended)",
+            "cosine_distance": 0.2071,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "arjun": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 3,
+            "heading_path": "Objects In Kubernetes > Understanding Kubernetes objects > Object spec and status",
+            "cosine_distance": 0.2164,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 9,
+            "heading_path": "Overview > Historical context for Kubernetes",
+            "cosine_distance": 0.2265,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-overview",
+            "chunk_no": 3,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2274,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2348,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-overview",
+            "chunk_no": 1,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2525,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "APP-deployment",
+          "APP-horizontal-pod-autoscale",
+          "APP-replicaset"
+        ]
+      },
+      "meena": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 3,
+            "heading_path": "Objects In Kubernetes > Understanding Kubernetes objects > Object spec and status",
+            "cosine_distance": 0.2164,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 9,
+            "heading_path": "Overview > Historical context for Kubernetes",
+            "cosine_distance": 0.2265,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-overview",
+            "chunk_no": 3,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2274,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2348,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-overview",
+            "chunk_no": 1,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2525,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "APP-deployment",
+          "APP-horizontal-pod-autoscale",
+          "APP-replicaset"
+        ]
+      },
+      "divya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "APP-deployment",
+            "chunk_no": 0,
+            "heading_path": "Deployments",
+            "cosine_distance": 0.1726,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-deployment",
+            "chunk_no": 56,
+            "heading_path": "Deployments > Writing a Deployment Spec > Replicas",
+            "cosine_distance": 0.1764,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-horizontal-pod-autoscale",
+            "chunk_no": 16,
+            "heading_path": "Horizontal Pod Autoscaling > Autoscaling during rolling update",
+            "cosine_distance": 0.2038,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/"
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-deployment",
+            "chunk_no": 22,
+            "heading_path": "Deployments > Rolling Back a Deployment",
+            "cosine_distance": 0.206,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-replicaset",
+            "chunk_no": 21,
+            "heading_path": "ReplicaSet > Alternatives to ReplicaSet > Deployment (recommended)",
+            "cosine_distance": 0.2071,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "mallory": {
+        "results": [],
+        "withheld_from_unfiltered_top": [
+          "APP-deployment",
+          "APP-horizontal-pod-autoscale",
+          "APP-replicaset"
+        ]
+      }
+    }
+  },
+  {
+    "question": "What are PersistentVolumes and PersistentVolumeClaims?",
+    "expected": "PLAT-persistent-volumes",
+    "unfiltered_top": [
+      "PLAT-persistent-volumes",
+      "PLAT-persistent-volumes",
+      "PLAT-persistent-volumes",
+      "PLAT-persistent-volumes",
+      "APP-statefulset"
+    ],
+    "users": {
+      "priya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "APP-statefulset",
+            "chunk_no": 12,
+            "heading_path": "StatefulSets > Pod Identity > Stable Storage",
+            "cosine_distance": 0.1893,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-statefulset",
+            "chunk_no": 4,
+            "heading_path": "StatefulSets > Components > Volume Claim Templates",
+            "cosine_distance": 0.2194,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-statefulset",
+            "chunk_no": 29,
+            "heading_path": "StatefulSets > PersistentVolumeClaim retention",
+            "cosine_distance": 0.2297,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-statefulset",
+            "chunk_no": 30,
+            "heading_path": "StatefulSets > PersistentVolumeClaim retention",
+            "cosine_distance": 0.239,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 5,
+            "document_id": "APP-statefulset",
+            "chunk_no": 32,
+            "heading_path": "StatefulSets > PersistentVolumeClaim retention",
+            "cosine_distance": 0.2734,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "PLAT-persistent-volumes"
+        ]
+      },
+      "arjun": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "PLAT-persistent-volumes",
+            "chunk_no": 2,
+            "heading_path": "Persistent Volumes > Introduction",
+            "cosine_distance": 0.1563,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+          },
+          {
+            "rank": 2,
+            "document_id": "PLAT-persistent-volumes",
+            "chunk_no": 42,
+            "heading_path": "Persistent Volumes > PersistentVolumeClaims",
+            "cosine_distance": 0.1718,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+          },
+          {
+            "rank": 3,
+            "document_id": "PLAT-persistent-volumes",
+            "chunk_no": 1,
+            "heading_path": "Persistent Volumes > Introduction",
+            "cosine_distance": 0.1753,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+          },
+          {
+            "rank": 4,
+            "document_id": "PLAT-persistent-volumes",
+            "chunk_no": 18,
+            "heading_path": "Persistent Volumes > Lifecycle of a volume and claim > Reserving a PersistentVolume",
+            "cosine_distance": 0.1889,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/"
+          },
+          {
+            "rank": 5,
+            "document_id": "PLAT-volume-snapshots",
+            "chunk_no": 8,
+            "heading_path": "Volume Snapshots > Lifecycle of a volume snapshot and volume snapshot content > Persistent Volume Claim as Snapshot Source Protection",
+            "cosine_distance": 0.1919,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/storage/volume-snapshots/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "APP-statefulset"
+        ]
+      },
+      "meena": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 10,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Persistent volume creation",
+            "cosine_distance": 0.2579,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-kubernetes-api",
+            "chunk_no": 14,
+            "heading_path": "The Kubernetes API > Persistence",
+            "cosine_distance": 0.2846,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/kubernetes-api/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-security-checklist",
+            "chunk_no": 15,
+            "heading_path": "Security Checklist > Secrets",
+            "cosine_distance": 0.3547,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/security-checklist/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 5,
+            "heading_path": "Role Based Access Control Good Practices > General good practice > Periodic review",
+            "cosine_distance": 0.3842,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-overview",
+            "chunk_no": 9,
+            "heading_path": "Overview > Historical context for Kubernetes",
+            "cosine_distance": 0.386,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "APP-statefulset",
+          "PLAT-persistent-volumes"
+        ]
+      },
+      "divya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "APP-statefulset",
+            "chunk_no": 12,
+            "heading_path": "StatefulSets > Pod Identity > Stable Storage",
+            "cosine_distance": 0.1893,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 2,
+            "document_id": "APP-statefulset",
+            "chunk_no": 4,
+            "heading_path": "StatefulSets > Components > Volume Claim Templates",
+            "cosine_distance": 0.2194,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 3,
+            "document_id": "APP-statefulset",
+            "chunk_no": 29,
+            "heading_path": "StatefulSets > PersistentVolumeClaim retention",
+            "cosine_distance": 0.2297,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 4,
+            "document_id": "APP-statefulset",
+            "chunk_no": 30,
+            "heading_path": "StatefulSets > PersistentVolumeClaim retention",
+            "cosine_distance": 0.239,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 10,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Persistent volume creation",
+            "cosine_distance": 0.2579,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "PLAT-persistent-volumes"
+        ]
+      },
+      "mallory": {
+        "results": [],
+        "withheld_from_unfiltered_top": [
+          "APP-statefulset",
+          "PLAT-persistent-volumes"
+        ]
+      }
+    }
+  },
+  {
+    "question": "What are recommended Kubernetes RBAC practices?",
+    "expected": "SEC-rbac-good-practices",
+    "unfiltered_top": [
+      "SEC-rbac-good-practices",
+      "SEC-secrets-good-practices",
+      "SEC-rbac-good-practices",
+      "SEC-rbac-good-practices",
+      "SEC-rbac-good-practices"
+    ],
+    "users": {
+      "priya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.254,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2622,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-overview",
+            "chunk_no": 9,
+            "heading_path": "Overview > Historical context for Kubernetes",
+            "cosine_distance": 0.2736,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 1,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2768,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-overview",
+            "chunk_no": 3,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2774,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "SEC-rbac-good-practices",
+          "SEC-secrets-good-practices"
+        ]
+      },
+      "arjun": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.254,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2622,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-overview",
+            "chunk_no": 9,
+            "heading_path": "Overview > Historical context for Kubernetes",
+            "cosine_distance": 0.2736,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 1,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2768,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-overview",
+            "chunk_no": 3,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2774,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          }
+        ],
+        "withheld_from_unfiltered_top": [
+          "SEC-rbac-good-practices",
+          "SEC-secrets-good-practices"
+        ]
+      },
+      "meena": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 0,
+            "heading_path": "Role Based Access Control Good Practices",
+            "cosine_distance": 0.1772,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SEC-secrets-good-practices",
+            "chunk_no": 2,
+            "heading_path": "Good practices for Kubernetes Secrets > Cluster administrators > Configure least-privilege access to Secrets",
+            "cosine_distance": 0.2246,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 6,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks",
+            "cosine_distance": 0.2354,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 16,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Token request",
+            "cosine_distance": 0.2371,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 5,
+            "heading_path": "Role Based Access Control Good Practices > General good practice > Periodic review",
+            "cosine_distance": 0.2405,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "divya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 0,
+            "heading_path": "Role Based Access Control Good Practices",
+            "cosine_distance": 0.1772,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SEC-secrets-good-practices",
+            "chunk_no": 2,
+            "heading_path": "Good practices for Kubernetes Secrets > Cluster administrators > Configure least-privilege access to Secrets",
+            "cosine_distance": 0.2246,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/secrets-good-practices/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 6,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks",
+            "cosine_distance": 0.2354,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 16,
+            "heading_path": "Role Based Access Control Good Practices > Kubernetes RBAC - privilege escalation risks > Token request",
+            "cosine_distance": 0.2371,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SEC-rbac-good-practices",
+            "chunk_no": 5,
+            "heading_path": "Role Based Access Control Good Practices > General good practice > Periodic review",
+            "cosine_distance": 0.2405,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/security/rbac-good-practices/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "mallory": {
+        "results": [],
+        "withheld_from_unfiltered_top": [
+          "SEC-rbac-good-practices",
+          "SEC-secrets-good-practices"
+        ]
+      }
+    }
+  },
+  {
+    "question": "What are the main Kubernetes components?",
+    "expected": "SHR-components",
+    "unfiltered_top": [
+      "SHR-components",
+      "SHR-overview",
+      "SHR-components",
+      "SHR-overview",
+      "SHR-working-with-objects"
+    ],
+    "users": {
+      "priya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-components",
+            "chunk_no": 0,
+            "heading_path": "Kubernetes Components > Core Components",
+            "cosine_distance": 0.1381,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-components",
+            "chunk_no": 1,
+            "heading_path": "Kubernetes Components > Core Components > Control Plane Components",
+            "cosine_distance": 0.2108,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2114,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 8,
+            "heading_path": "Objects In Kubernetes > What's next",
+            "cosine_distance": 0.2129,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "arjun": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-components",
+            "chunk_no": 0,
+            "heading_path": "Kubernetes Components > Core Components",
+            "cosine_distance": 0.1381,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-components",
+            "chunk_no": 1,
+            "heading_path": "Kubernetes Components > Core Components > Control Plane Components",
+            "cosine_distance": 0.2108,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2114,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 8,
+            "heading_path": "Objects In Kubernetes > What's next",
+            "cosine_distance": 0.2129,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "meena": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-components",
+            "chunk_no": 0,
+            "heading_path": "Kubernetes Components > Core Components",
+            "cosine_distance": 0.1381,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-components",
+            "chunk_no": 1,
+            "heading_path": "Kubernetes Components > Core Components > Control Plane Components",
+            "cosine_distance": 0.2108,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2114,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 8,
+            "heading_path": "Objects In Kubernetes > What's next",
+            "cosine_distance": 0.2129,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "divya": {
+        "results": [
+          {
+            "rank": 1,
+            "document_id": "SHR-components",
+            "chunk_no": 0,
+            "heading_path": "Kubernetes Components > Core Components",
+            "cosine_distance": 0.1381,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 2,
+            "document_id": "SHR-overview",
+            "chunk_no": 11,
+            "heading_path": "Overview > What's next",
+            "cosine_distance": 0.1534,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 3,
+            "document_id": "SHR-components",
+            "chunk_no": 1,
+            "heading_path": "Kubernetes Components > Core Components > Control Plane Components",
+            "cosine_distance": 0.2108,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/components/"
+          },
+          {
+            "rank": 4,
+            "document_id": "SHR-overview",
+            "chunk_no": 2,
+            "heading_path": "Overview > Why you need Kubernetes and what it can do",
+            "cosine_distance": 0.2114,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/"
+          },
+          {
+            "rank": 5,
+            "document_id": "SHR-working-with-objects",
+            "chunk_no": 8,
+            "heading_path": "Objects In Kubernetes > What's next",
+            "cosine_distance": 0.2129,
+            "authorized": true,
+            "source_url": "https://kubernetes.io/docs/concepts/overview/working-with-objects/"
+          }
+        ],
+        "withheld_from_unfiltered_top": []
+      },
+      "mallory": {
+        "results": [],
+        "withheld_from_unfiltered_top": [
+          "SHR-components",
+          "SHR-overview",
+          "SHR-working-with-objects"
+        ]
+      }
+    }
+  }
+]

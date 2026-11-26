@@ -1,0 +1,86 @@
+== Documents and chunks per category
+        category         | classification | documents | chunks | dims 
+-------------------------+----------------+-----------+--------+------
+ application_engineering | restricted     |        10 |    401 |  384
+ platform_engineering    | restricted     |        10 |    214 |  384
+ security_engineering    | restricted     |         5 |     98 |  384
+ shared                  | shared         |         5 |     59 |  384
+(4 rows)
+
+== Group memberships
+ user_id | display_name | is_active |                            groups                            
+---------+--------------+-----------+--------------------------------------------------------------
+ arjun   | Arjun        | t         | all_employees, platform_engineering
+ divya   | Divya        | t         | all_employees, application_engineering, security_engineering
+ meena   | Meena        | t         | all_employees, security_engineering
+ priya   | Priya        | t         | all_employees, application_engineering
+(4 rows)
+
+== Document ACL (group -> documents)
+       group_name        | documents |                                                                                                                  document_ids                                                                                                                  
+-------------------------+-----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ all_employees           |         5 | SHR-components, SHR-kubernetes-api, SHR-namespaces, SHR-overview, SHR-working-with-objects
+ application_engineering |        10 | APP-cron-jobs, APP-daemonset, APP-deployment, APP-horizontal-pod-autoscale, APP-init-containers, APP-job, APP-pod-lifecycle, APP-pods, APP-replicaset, APP-statefulset
+ platform_engineering    |        10 | PLAT-dynamic-provisioning, PLAT-ephemeral-volumes, PLAT-persistent-volumes, PLAT-projected-volumes, PLAT-storage-capacity, PLAT-storage-classes, PLAT-volume-pvc-datasource, PLAT-volumes, PLAT-volume-snapshot-classes, PLAT-volume-snapshots
+ security_engineering    |         5 | SEC-controlling-access, SEC-pod-security-standards, SEC-rbac-good-practices, SEC-secrets-good-practices, SEC-security-checklist
+(4 rows)
+
+== RLS status
+     relname      | rls_enabled | rls_forced 
+------------------+-------------+------------
+ app_users        | f           | f
+ chunks           | t           | t
+ document_acl     | f           | f
+ documents        | t           | t
+ groups           | f           | f
+ membership_audit | f           | f
+ user_groups      | f           | f
+(7 rows)
+
+== Policies
+ tablename |          policyname           |  cmd   |  roles   |                                              qual                                               
+-----------+-------------------------------+--------+----------+-------------------------------------------------------------------------------------------------
+ chunks    | chunks_by_group_membership    | SELECT | {public} | (document_id = ANY (( SELECT k8srag.readable_document_ids() AS readable_document_ids)::text[]))
+ documents | documents_by_group_membership | SELECT | {public} | (document_id = ANY (( SELECT k8srag.readable_document_ids() AS readable_document_ids)::text[]))
+(2 rows)
+
+== Reader role attributes and table grants
+    rolname     | rolsuper | rolbypassrls | rolcreaterole | rolcreatedb | rolinherit 
+----------------+----------+--------------+---------------+-------------+------------
+ k8s_rag_reader | f        | f            | f             | f           | f
+(1 row)
+
+ table_name | privilege_type 
+------------+----------------
+ chunks     | SELECT
+ documents  | SELECT
+(2 rows)
+
+== Visible chunks per identity, as the reader would see them (simulated with SET ROLE)
+SET
+ identity | visible_chunks | visible_documents | categories 
+----------+----------------+-------------------+------------
+ priya    |            460 |                15 | APP,SHR
+(1 row)
+
+ identity | visible_chunks | visible_documents | categories 
+----------+----------------+-------------------+------------
+ arjun    |            273 |                15 | PLAT,SHR
+(1 row)
+
+ identity | visible_chunks | visible_documents | categories 
+----------+----------------+-------------------+------------
+ meena    |            157 |                10 | SEC,SHR
+(1 row)
+
+ identity | visible_chunks | visible_documents | categories  
+----------+----------------+-------------------+-------------
+ divya    |            558 |                20 | APP,SEC,SHR
+(1 row)
+
+ identity | visible_chunks | visible_documents | categories 
+----------+----------------+-------------------+------------
+ mallory  |              0 |                 0 | 
+(1 row)
+
+RESET

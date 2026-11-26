@@ -1,0 +1,26 @@
+[
+  {"question": "How does a Kubernetes Deployment manage application replicas?", "expected": "APP-deployment", "area": "application_engineering", "assignment": true, "answer_terms": ["ReplicaSet", "replicas"]},
+  {"question": "What are PersistentVolumes and PersistentVolumeClaims?", "expected": "PLAT-persistent-volumes", "area": "platform_engineering", "assignment": true, "answer_terms": ["PersistentVolumeClaim", "request for storage"]},
+  {"question": "What are recommended Kubernetes RBAC practices?", "expected": "SEC-rbac-good-practices", "area": "security_engineering", "assignment": true, "answer_terms": ["least privilege"]},
+  {"question": "What are the main Kubernetes components?", "expected": "SHR-components", "area": "shared", "assignment": true, "answer_terms": ["kube-apiserver", "etcd"]},
+
+  {"question": "How do I run a Job on a repeating schedule?", "expected": "APP-cron-jobs", "area": "application_engineering", "assignment": false, "answer_terms": ["repeating schedule"]},
+  {"question": "How do I roll back a Deployment to a previous revision?", "expected": "APP-deployment", "area": "application_engineering", "assignment": false, "answer_terms": ["rollout undo"]},
+  {"question": "How does the Horizontal Pod Autoscaler calculate the desired number of replicas?", "expected": "APP-horizontal-pod-autoscale", "area": "application_engineering", "assignment": false, "answer_terms": ["desiredReplicas"]},
+  {"question": "How do init containers differ from regular app containers?", "expected": "APP-init-containers", "area": "application_engineering", "assignment": false, "answer_terms": ["run to completion"]},
+  {"question": "What stable network identity does a StatefulSet give each Pod?", "expected": "APP-statefulset", "area": "application_engineering", "assignment": false, "answer_terms": ["ordinal", "hostname"]},
+  {"question": "What does the restartPolicy field of a Pod control?", "expected": "APP-pod-lifecycle", "area": "application_engineering", "assignment": false, "answer_terms": ["restartPolicy", "OnFailure"]},
+
+  {"question": "How can I take a point-in-time snapshot of a volume?", "expected": "PLAT-volume-snapshots", "area": "platform_engineering", "assignment": false, "answer_terms": ["VolumeSnapshot"]},
+  {"question": "What access modes can a PersistentVolume have, such as ReadWriteOnce?", "expected": "PLAT-persistent-volumes", "area": "platform_engineering", "assignment": false, "answer_terms": ["ReadWriteOnce", "ReadOnlyMany", "ReadWriteMany"]},
+  {"question": "Which volume binding mode delays binding until a Pod using the claim is scheduled?", "expected": "PLAT-storage-classes", "area": "platform_engineering", "assignment": false, "answer_terms": ["WaitForFirstConsumer"]},
+  {"question": "What happens to a PersistentVolume when its claim is deleted under the Retain reclaim policy?", "expected": "PLAT-persistent-volumes", "area": "platform_engineering", "assignment": false, "answer_terms": ["Retain", "manual reclamation"]},
+  {"question": "How do I clone an existing PVC using a dataSource?", "expected": "PLAT-volume-pvc-datasource", "area": "platform_engineering", "assignment": false, "answer_terms": ["dataSource"]},
+
+  {"question": "What is the difference between the privileged, baseline and restricted pod security levels?", "expected": "SEC-pod-security-standards", "area": "security_engineering", "assignment": false, "answer_terms": ["Privileged", "Baseline", "Restricted"]},
+  {"question": "Why is granting the escalate or bind verbs on roles risky?", "expected": "SEC-rbac-good-practices", "area": "security_engineering", "assignment": false, "answer_terms": ["escalate", "bind"]},
+  {"question": "Should Secrets be encrypted at rest in etcd?", "expected": "SEC-secrets-good-practices", "area": "security_engineering", "assignment": false, "answer_terms": ["encryption at rest"]},
+  {"question": "Which stages does a request pass through when it reaches the Kubernetes API server?", "expected": "SEC-controlling-access", "area": "security_engineering", "assignment": false, "answer_terms": ["Authentication", "Authorization", "Admission control"]},
+
+  {"question": "How do namespaces isolate groups of resources within a cluster?", "expected": "SHR-namespaces", "area": "shared", "assignment": false, "answer_terms": ["isolating groups of resources"]}
+]

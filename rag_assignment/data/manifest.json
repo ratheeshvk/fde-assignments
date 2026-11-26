@@ -1,0 +1,47 @@
+{
+  "source_repo": "https://github.com/kubernetes/website",
+  "commit_sha": "7c81c4a67b17aa329f277a53b9e9111fb03b0ede",
+  "docs_root": "content/en/docs",
+  "license": "CC BY 4.0 (documentation text), Apache-2.0 (code samples) - (c) The Kubernetes Authors",
+  "categories": {
+    "application_engineering": {"prefix": "APP", "classification": "restricted", "groups": ["application_engineering"]},
+    "platform_engineering": {"prefix": "PLAT", "classification": "restricted", "groups": ["platform_engineering"]},
+    "security_engineering": {"prefix": "SEC", "classification": "restricted", "groups": ["security_engineering"]},
+    "shared": {"prefix": "SHR", "classification": "shared", "groups": ["all_employees"]}
+  },
+  "documents": [
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/deployment.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/replicaset.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/statefulset.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/daemonset.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/job.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/controllers/cron-jobs.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/pods/_index.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/pods/pod-lifecycle.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/pods/init-containers.md"},
+    {"category": "application_engineering", "path": "concepts/workloads/autoscaling/horizontal-pod-autoscale.md"},
+
+    {"category": "platform_engineering", "path": "concepts/storage/volumes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/persistent-volumes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/storage-classes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/dynamic-provisioning.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/ephemeral-volumes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/projected-volumes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/volume-snapshots.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/volume-snapshot-classes.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/storage-capacity.md"},
+    {"category": "platform_engineering", "path": "concepts/storage/volume-pvc-datasource.md"},
+
+    {"category": "security_engineering", "path": "concepts/security/rbac-good-practices.md"},
+    {"category": "security_engineering", "path": "concepts/security/pod-security-standards.md"},
+    {"category": "security_engineering", "path": "concepts/security/secrets-good-practices.md"},
+    {"category": "security_engineering", "path": "concepts/security/security-checklist.md"},
+    {"category": "security_engineering", "path": "concepts/security/controlling-access.md"},
+
+    {"category": "shared", "path": "concepts/overview/_index.md"},
+    {"category": "shared", "path": "concepts/overview/components.md"},
+    {"category": "shared", "path": "concepts/overview/kubernetes-api.md"},
+    {"category": "shared", "path": "concepts/overview/working-with-objects/_index.md"},
+    {"category": "shared", "path": "concepts/overview/working-with-objects/namespaces.md"}
+  ]
+}

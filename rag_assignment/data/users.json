@@ -1,0 +1,14 @@
+{
+  "groups": {
+    "application_engineering": "Application Engineering (fictional access policy)",
+    "platform_engineering": "Platform Engineering (fictional access policy)",
+    "security_engineering": "Security Engineering (fictional access policy)",
+    "all_employees": "Organization-wide shared knowledge"
+  },
+  "users": [
+    {"user_id": "priya", "display_name": "Priya", "groups": ["application_engineering", "all_employees"]},
+    {"user_id": "arjun", "display_name": "Arjun", "groups": ["platform_engineering", "all_employees"]},
+    {"user_id": "meena", "display_name": "Meena", "groups": ["security_engineering", "all_employees"]},
+    {"user_id": "divya", "display_name": "Divya", "groups": ["application_engineering", "security_engineering", "all_employees"]}
+  ]
+}

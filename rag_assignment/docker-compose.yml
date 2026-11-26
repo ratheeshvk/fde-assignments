@@ -1,0 +1,19 @@
+# OPTIONAL: only if you do not already have PostgreSQL + pgvector on port 5434.
+# Credentials come from your shell/.env; there are no defaults committed here.
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: raglab
+    ports:
+      - "5434:5432"
+    volumes:
+      - k8s_rag_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d raglab"]
+      interval: 3s
+      retries: 20
+volumes:
+  k8s_rag_postgres_data:

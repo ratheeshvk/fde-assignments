@@ -1,0 +1,152 @@
+[
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/deployment.md",
+    "bytes": 59790,
+    "sha256": "ca4571585f3af4039292fdbbe127e296e1b86d44b4df52cec75dbf51c96da513"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/replicaset.md",
+    "bytes": 19303,
+    "sha256": "973d23febbb9c5c8dc791d9301f5c15d4a05b96a36550f5099ce443fed4602b9"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/statefulset.md",
+    "bytes": 27423,
+    "sha256": "118ca6bb4a1d290fb72142a72b93c38e164563f4112b8e2a1db207daefe630c9"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/daemonset.md",
+    "bytes": 14881,
+    "sha256": "31027b1dd7994cb351332030c0a97c62ae6c33419fef3e2dd18dd679e7c7a84c"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/job.md",
+    "bytes": 65377,
+    "sha256": "1a1e12019f41a74695256a3c223fed5973b4a5c19d657e6e700068746d35de3d"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/controllers/cron-jobs.md",
+    "bytes": 14448,
+    "sha256": "4a8c404af0cfcb8a71a3411f68a93b7cae4d704eae57e2710a69dfd74809c26c"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/pods/_index.md",
+    "bytes": 26031,
+    "sha256": "dbc592a96241fb0be96b797e704a5f8ceabc7531db7ef831539f10d132457792"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/pods/pod-lifecycle.md",
+    "bytes": 46643,
+    "sha256": "7fb51c64aad8e9d8f059fd4d3a9bdac3d539e2ad0b8ddadc7c1f9feff8f2d68f"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/pods/init-containers.md",
+    "bytes": 15351,
+    "sha256": "96bbfeaaa40b3eaacce7e9c0e2af935930711b39a0dd14888eb17abfca250fca"
+  },
+  {
+    "source_path": "content/en/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale.md",
+    "bytes": 34763,
+    "sha256": "7188382cda8faf81610d1cece38767dcb2242b4e13331412a94ca2531ff44aa7"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/volumes.md",
+    "bytes": 32575,
+    "sha256": "a4b2cd28278f9ec5eb51670c9c63ddcc35138da757e8c4a8f51348f053d52df5"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/persistent-volumes.md",
+    "bytes": 51392,
+    "sha256": "4e49991c898819b279d6aebc2161237e25b10b0997cfdc8a00b8049b13277f8e"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/storage-classes.md",
+    "bytes": 23318,
+    "sha256": "4cd2d5dd45425bfbfa09108e9837112baed3f64ae1fb3f01eae57fe675cc963b"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/dynamic-provisioning.md",
+    "bytes": 5125,
+    "sha256": "87c555847a8ece97931f9547cd40722e77eb3629f137ad9b78f517ba470997fa"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/ephemeral-volumes.md",
+    "bytes": 11647,
+    "sha256": "8d9a867432d901042cdf2a66f8f9cafd012e46b5923ad213406bdedc3e8074cb"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/projected-volumes.md",
+    "bytes": 12234,
+    "sha256": "3392e6f5400af70a7f45b0a7b0caa14c6d1c9554e2f9b99901d02ba050c5874a"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/volume-snapshots.md",
+    "bytes": 12350,
+    "sha256": "a0e5e62ed3151dcdcebc3863698cafd4a41b78db49003c537edbb1669de72c28"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/volume-snapshot-classes.md",
+    "bytes": 3761,
+    "sha256": "34a4425079a3b84fb40a3804e3da307d4b057d1a04a688c60c25f479966d349c"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/storage-capacity.md",
+    "bytes": 4750,
+    "sha256": "f6ce6a3839014416b72e5c5c43098357b98ae378dbd02ddaed5f09f713fe0e82"
+  },
+  {
+    "source_path": "content/en/docs/concepts/storage/volume-pvc-datasource.md",
+    "bytes": 3170,
+    "sha256": "2c5192b8799fc0a6fbdb4b4044b05308af43685c06f2e5f183823216f9103d25"
+  },
+  {
+    "source_path": "content/en/docs/concepts/security/rbac-good-practices.md",
+    "bytes": 12407,
+    "sha256": "66a7beea269cf055a305172a472d074527c07de5051ab5eb1ac4f811df78f81b"
+  },
+  {
+    "source_path": "content/en/docs/concepts/security/pod-security-standards.md",
+    "bytes": 25236,
+    "sha256": "468430055152f2671c9071bd8cddd2f15525ab7ee2f9059a8fb1f60af9238127"
+  },
+  {
+    "source_path": "content/en/docs/concepts/security/secrets-good-practices.md",
+    "bytes": 5208,
+    "sha256": "06b70ffff8db80ff9f5a456dc9d2fa653549d72b9514b8503864ed7d0637d33d"
+  },
+  {
+    "source_path": "content/en/docs/concepts/security/security-checklist.md",
+    "bytes": 22992,
+    "sha256": "4b74af49b3ae24872698d14629b1fb5f5662b55e8e7cc69cabb2294d6931fe07"
+  },
+  {
+    "source_path": "content/en/docs/concepts/security/controlling-access.md",
+    "bytes": 8373,
+    "sha256": "bf6f6c5c64a1e47fcbba4aebecdc7d0d361d85db7d50c68366bd4ede99f6eed2"
+  },
+  {
+    "source_path": "content/en/docs/concepts/overview/_index.md",
+    "bytes": 10503,
+    "sha256": "4caf1cd3bfe590d9eb75d513d2024081338dc48523f81f9e06e3208e749f3c8c"
+  },
+  {
+    "source_path": "content/en/docs/concepts/overview/components.md",
+    "bytes": 3334,
+    "sha256": "18c5c61f4db074b6fc899b18047b4423e7a2404e43261868d2da6fadcf9688f0"
+  },
+  {
+    "source_path": "content/en/docs/concepts/overview/kubernetes-api.md",
+    "bytes": 15435,
+    "sha256": "12051903c398c11b0e126fa41081e11aadcabf0503b0d018b6778099bbb8ce8c"
+  },
+  {
+    "source_path": "content/en/docs/concepts/overview/working-with-objects/_index.md",
+    "bytes": 8495,
+    "sha256": "4a9ca9b6ebb446b11a251269e36eb858468ab8a708ce43c8f5eb4273206be0f2"
+  },
+  {
+    "source_path": "content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+    "bytes": 6420,
+    "sha256": "165c4da414c735795f7c274cf2fcd7822671a480bb205cdb35008e476c621143"
+  }
+]

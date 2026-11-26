@@ -1,0 +1,13 @@
+Chunking 30 documents with 5 strategies
+  fixed                  831 chunks (1.7s)
+  recursive              961 chunks (0.5s)
+  structure              478 chunks (0.5s)
+  semantic               507 chunks (0.6s)
+  structure_recursive    772 chunks (0.5s)
+Embedding chunks for the retrieval check
+  fixed                chunks=831   avg=787   >512tok=0    midword=84.6 % heading=0.0  % hit@1=0.90 mrr=0.95 answer@1=0.45 answer@3=0.65
+  recursive            chunks=961   avg=613   >512tok=0    midword=0.3  % heading=0.0  % hit@1=0.90 mrr=0.94 answer@1=0.50 answer@3=0.80
+  structure            chunks=478   avg=1199  >512tok=73   midword=0.0  % heading=100.0% hit@1=0.90 mrr=0.95 answer@1=0.65 answer@3=0.80
+  semantic             chunks=507   avg=1130  >512tok=86   midword=0.0  % heading=0.0  % hit@1=0.85 mrr=0.92 answer@1=0.50 answer@3=0.85
+  structure_recursive  chunks=772   avg=756   >512tok=1    midword=0.3  % heading=100.0% hit@1=0.85 mrr=0.93 answer@1=0.65 answer@3=0.90
+Wrote /Users/Ratheesh.Vaddakkek/Desktop/FDE-2026/fde-assignments/rag_assignment/results/chunking/comparison.md, summary.json, boundary_examples.md, chunks/*.jsonl

@@ -1,0 +1,106 @@
+Security test run 2026-11-25T23:04:17 | reader role: k8s_rag_reader
+PASS  Reader role is NOT superuser and NOT BYPASSRLS  => (False, False)
+
+== 1. Authorized user retrieves a restricted document
+      What are recommended Kubernetes RBAC practices? as 'meena': 5 chunks
+        SEC-rbac-good-practices        chunk 0   dist 0.1772  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-secrets-good-practices     chunk 2   dist 0.2246  https://kubernetes.io/docs/concepts/security/secrets-good-practices/
+        SEC-rbac-good-practices        chunk 6   dist 0.2354  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-rbac-good-practices        chunk 16  dist 0.2371  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-rbac-good-practices        chunk 5   dist 0.2405  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+PASS  Meena (security_engineering): top-1 is SEC-rbac-good-practices  => ['SEC-rbac-good-practices']
+PASS  Meena: direct lookup of SEC-rbac-good-practices finds chunks  => True
+PASS  Divya (app + security): RBAC doc visible  => True
+
+== 2. Unauthorized users cannot retrieve that same document
+      What are recommended Kubernetes RBAC practices? as 'priya': 5 chunks
+        SHR-overview                   chunk 11  dist 0.2540  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 2   dist 0.2622  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 9   dist 0.2736  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 1   dist 0.2768  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 3   dist 0.2774  https://kubernetes.io/docs/concepts/overview/
+PASS  priya: no SEC-* document in RBAC search results  => False
+PASS  priya: direct SELECT of SEC-rbac-good-practices chunks returns 0  => 0
+PASS  priya: document metadata row is hidden too  => 0
+      What are recommended Kubernetes RBAC practices? as 'arjun': 5 chunks
+        SHR-overview                   chunk 11  dist 0.2540  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 2   dist 0.2622  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 9   dist 0.2736  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 1   dist 0.2768  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 3   dist 0.2774  https://kubernetes.io/docs/concepts/overview/
+PASS  arjun: no SEC-* document in RBAC search results  => False
+PASS  arjun: direct SELECT of SEC-rbac-good-practices chunks returns 0  => 0
+PASS  arjun: document metadata row is hidden too  => 0
+PASS  arjun cannot see APP-deployment  => 0
+PASS  priya cannot see PLAT-persistent-volumes  => 0
+PASS  meena cannot see APP-deployment  => 0
+PASS  divya cannot see PLAT-persistent-volumes  => 0
+PASS  priya can see shared SHR-components  => True
+PASS  arjun can see shared SHR-components  => True
+PASS  meena can see shared SHR-components  => True
+PASS  divya can see shared SHR-components  => True
+
+== 3. Revoking membership removes access immediately (no re-embedding / re-ingestion)
+      chunk fingerprint before: count=772 max_id=1544 hash=dba123103398bbe062aa19748b8dd7eb
+      ADMIN: DELETE FROM k8srag.user_groups WHERE user_id='divya' AND group_name='security_engineering'
+      What are recommended Kubernetes RBAC practices? as 'divya': 5 chunks
+        SHR-overview                   chunk 11  dist 0.2540  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 2   dist 0.2622  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 9   dist 0.2736  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 1   dist 0.2768  https://kubernetes.io/docs/concepts/overview/
+        SHR-overview                   chunk 3   dist 0.2774  https://kubernetes.io/docs/concepts/overview/
+PASS  divya after revoke: no SEC-* document in RBAC search  => False
+PASS  divya after revoke: direct SELECT of RBAC doc returns 0  => 0
+PASS  divya after revoke: still sees APP-deployment (other membership intact)  => ['APP-deployment']
+PASS  chunk/embedding fingerprint unchanged by revocation  => (772, 1544, 'dba123103398bbe062aa19748b8dd7eb')
+      ADMIN: restored divya -> security_engineering
+
+== 4. Restoring the legitimate membership returns access
+      What are recommended Kubernetes RBAC practices? as 'divya': 5 chunks
+        SEC-rbac-good-practices        chunk 0   dist 0.1772  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-secrets-good-practices     chunk 2   dist 0.2246  https://kubernetes.io/docs/concepts/security/secrets-good-practices/
+        SEC-rbac-good-practices        chunk 6   dist 0.2354  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-rbac-good-practices        chunk 16  dist 0.2371  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+        SEC-rbac-good-practices        chunk 5   dist 0.2405  https://kubernetes.io/docs/concepts/security/rbac-good-practices/
+PASS  divya after restore: top-1 is SEC-rbac-good-practices  => ['SEC-rbac-good-practices']
+PASS  chunk/embedding fingerprint still unchanged after restore  => (772, 1544, 'dba123103398bbe062aa19748b8dd7eb')
+      audit: 07:04:19.457970 REVOKE divya security_engineering
+      audit: 07:04:19.504076 GRANT  divya security_engineering
+
+== 5. Unknown / missing / deactivated identities cannot read protected chunks
+      What are recommended Kubernetes RBAC practices? as 'mallory': 0 chunks
+PASS  unknown identity 'mallory': total visible chunks  => 0
+PASS  unknown identity 'mallory': total visible documents  => 0
+PASS  empty identity '': total visible chunks  => 0
+PASS  identity never set: total visible chunks  => 0
+PASS  case/spacing trick 'Priya ' is not priya  => 0
+PASS  identity does not leak into the next transaction  => 0
+PASS  deactivated user priya: total visible chunks  => 0
+PASS  reactivated priya sees APP-deployment again  => True
+
+== 6. Bypass attempts with the reader login are rejected by PostgreSQL
+PASS  read ACL table directly  => InsufficientPrivilege: permission denied for table document_acl
+PASS  read group memberships directly  => InsufficientPrivilege: permission denied for table user_groups
+PASS  self-grant a group  => InsufficientPrivilege: permission denied for table user_groups
+PASS  tamper with chunks  => InsufficientPrivilege: permission denied for table chunks
+PASS  disable RLS on chunks  => InsufficientPrivilege: must be owner of table chunks
+PASS  SET row_security = off  => InsufficientPrivilege: query would be affected by row-level security policy for table "chunks"
+
+== 7. Query plan: the RLS filter runs inside the scan, before ranking/LIMIT
+      Limit
+        InitPlan 1
+          ->  Result
+        InitPlan 2
+          ->  Result
+        ->  Sort
+              Sort Key: ((c.embedding <=> '<query embedding>'::vector))
+              ->  Nested Loop
+                    ->  Seq Scan on documents d
+                          Filter: (document_id = ANY ((InitPlan 2).col1))
+                    ->  Index Scan using chunks_document_idx on chunks c
+                          Index Cond: ((document_id = d.document_id) AND (document_id = ANY ((InitPlan 1).col1)))
+                          Filter: (chunking_strategy = 'structure_recursive'::text)
+PASS  RLS predicate (InitPlan of readable_document_ids) is applied in the chunks scan, below Sort/Limit  => True
+
+ALL CHECKS PASSED
+Note: --user identities are simulated for the demo; production identity must come from a verified login.
